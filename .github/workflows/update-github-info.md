@@ -5,6 +5,9 @@ on:
   schedule: daily
   workflow_dispatch:
 
+engine: copilot
+model: gpt-5-mini
+
 tools:
   edit:
   web-fetch:
@@ -16,6 +19,7 @@ network:
   allowed:
     - github.blog
     - github.com
+    - awesome-copilot.github.com
 
 safe-outputs:
   create-pull-request:
@@ -32,7 +36,8 @@ Keep the GitHub Info website current with concise, practical updates that help d
 2. Read the current `site/content/github-info.md` with the repository file tools.
 3. Use the `web-fetch` tool to fetch and read https://github.blog/latest/.
 4. Use the `web-fetch` tool to fetch and read https://github.blog/changelog/.
-5. Use GitHub repository API tools for any additional repository guidance or reference files. Do not use terminal, CLI, bash, or sandboxed commands to read repository guidance.
+5. Use the `web-fetch` tool to fetch and read https://awesome-copilot.github.com/workflows/.
+6. Use GitHub repository API tools for any additional repository guidance or reference files. Do not use terminal, CLI, bash, or sandboxed commands to read repository guidance.
 
 ## Update rules
 
@@ -40,6 +45,7 @@ Keep the GitHub Info website current with concise, practical updates that help d
 - Keep summaries short, practical, and useful to developers.
 - Preserve the existing editorial angle and Markdown structure.
 - Mention the source whenever an update comes from the GitHub Blog or GitHub Changelog.
+- Mention Awesome Copilot as the source whenever an update comes from https://awesome-copilot.github.com/workflows/.
 - Do not invent details, dates, links, or product claims. Use only information supported by the fetched sources.
 - If there is no worthwhile, well-supported update, leave the file unchanged.
 
